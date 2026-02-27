@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -95,7 +96,7 @@ p{
     max-width:750px;
 }
 
-/* ===== Галерея 3 квадрата ===== */
+/* ===== Галерея ===== */
 
 .gallery{
     position:relative;
@@ -106,30 +107,36 @@ p{
 
 .gallery-track{
     display:flex;
-    align-items:center;
     transition:transform 0.6s ease;
 }
 
 .gallery-item{
-    width:260px;
-    height:260px;
-    margin:0 25px;
+    width:280px;
+    height:280px;
+    margin-right:30px;
     overflow:hidden;
-    transition:all 0.6s ease;
-    opacity:0.5;
-    transform:scale(0.85);
     flex-shrink:0;
+    transition:all 0.6s ease;
+    cursor:pointer;
 }
 
 .gallery-item img{
     width:100%;
     height:100%;
     object-fit:cover;
+    transition:0.4s ease;
 }
 
-.gallery-item.active{
-    transform:scale(1.15);
-    opacity:1;
+/* активный слева */
+.gallery-item.active img{
+    filter:none;
+    transform:scale(1);
+}
+
+/* затемнённые справа */
+.gallery-item:not(.active) img{
+    filter:brightness(40%);
+    transform:scale(0.9);
 }
 
 .arrow{
@@ -146,8 +153,49 @@ p{
 
 .arrow:hover{ color:#fff; }
 
-.arrow.left{ left:0; }
-.arrow.right{ right:0; }
+.arrow.left{ left:-40px; }
+.arrow.right{ right:-40px; }
+
+/* ===== Lightbox ===== */
+
+.lightbox{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.95);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    pointer-events:none;
+    transition:0.4s ease;
+    z-index:2000;
+}
+
+.lightbox.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
+}
+
+.lightbox-close{
+    position:absolute;
+    top:30px;
+    right:40px;
+    font-size:28px;
+    cursor:pointer;
+    color:#888;
+}
+
+.lightbox-close:hover{
+    color:#fff;
+}
 
 /* Футер */
 
@@ -159,7 +207,6 @@ footer{
 footer a{
     color:#777;
     text-decoration:none;
-    transition:0.3s;
 }
 
 footer a:hover{ color:#fff; }
@@ -169,7 +216,6 @@ footer a:hover{ color:#fff; }
     font-size:12px;
     letter-spacing:2px;
     color:#444;
-    font-weight:300;
 }
 </style>
 </head>
@@ -187,21 +233,11 @@ footer a:hover{ color:#fff; }
 
 <section id="about">
 <h1>AI e-commerce визуализация одежды</h1>
-
-<p>
-Создаю e-commerce изображения одежды с помощью ИИ-генерации для интернет-магазинов и частных брендов.
-Работаю в форматах ghost mannequin, flat lay, white background и lookbook.
-</p>
-
-<p>
-Кейс: сотрудничество с компанией PODIUM — премиальный fashion-ритейлер.
-Создание AI-визуализаций аксессуаров, виртуальных моделей и digital-кампаний.
-</p>
+<p>Создаю e-commerce изображения одежды с помощью ИИ-генерации для брендов.</p>
 </section>
 
 <section id="models" class="reveal">
 <h2>ИИ-модели</h2>
-<p>Консистентные виртуальные модели под конкретный бренд.</p>
 
 <div class="gallery">
 <span class="arrow left">&#10094;</span>
@@ -211,65 +247,6 @@ footer a:hover{ color:#fff; }
 <div class="gallery-item"><img src="models3.jpg"></div>
 <div class="gallery-item"><img src="models4.jpg"></div>
 <div class="gallery-item"><img src="models5.jpg"></div>
-<div class="gallery-item"><img src="models6.jpg"></div>
-<div class="gallery-item"><img src="models7.jpg"></div>
-</div>
-<span class="arrow right">&#10095;</span>
-</div>
-</section>
-
-<section id="fashion" class="reveal">
-<h2>Одежда</h2>
-<p>Ghost mannequin, flat lay и campaign style для e-commerce.</p>
-
-<div class="gallery">
-<span class="arrow left">&#10094;</span>
-<div class="gallery-track">
-<div class="gallery-item active"><img src="fashion1.jpg"></div>
-<div class="gallery-item"><img src="fashion2.jpg"></div>
-<div class="gallery-item"><img src="fashion3.jpg"></div>
-<div class="gallery-item"><img src="fashion4.jpg"></div>
-<div class="gallery-item"><img src="fashion5.jpg"></div>
-<div class="gallery-item"><img src="fashion6.jpg"></div>
-<div class="gallery-item"><img src="fashion7.jpg"></div>
-</div>
-<span class="arrow right">&#10095;</span>
-</div>
-</section>
-
-<section id="concepts" class="reveal">
-<h2>Концепты</h2>
-<p>«Хрупкие создания Байкала» и «Русалка Тихого Океана».</p>
-
-<div class="gallery">
-<span class="arrow left">&#10094;</span>
-<div class="gallery-track">
-<div class="gallery-item active"><img src="concept1.jpg"></div>
-<div class="gallery-item"><img src="concept2.jpg"></div>
-<div class="gallery-item"><img src="concept3.jpg"></div>
-<div class="gallery-item"><img src="concept4.jpg"></div>
-<div class="gallery-item"><img src="concept5.jpg"></div>
-<div class="gallery-item"><img src="concept6.jpg"></div>
-<div class="gallery-item"><img src="concept7.jpg"></div>
-</div>
-<span class="arrow right">&#10095;</span>
-</div>
-</section>
-
-<section id="floral" class="reveal">
-<h2>Флористика</h2>
-<p>Генеративная ботаника для fashion-визуалов.</p>
-
-<div class="gallery">
-<span class="arrow left">&#10094;</span>
-<div class="gallery-track">
-<div class="gallery-item active"><img src="floral1.jpg"></div>
-<div class="gallery-item"><img src="floral2.jpg"></div>
-<div class="gallery-item"><img src="floral3.jpg"></div>
-<div class="gallery-item"><img src="floral4.jpg"></div>
-<div class="gallery-item"><img src="floral5.jpg"></div>
-<div class="gallery-item"><img src="floral6.jpg"></div>
-<div class="gallery-item"><img src="floral7.jpg"></div>
 </div>
 <span class="arrow right">&#10095;</span>
 </div>
@@ -277,26 +254,22 @@ footer a:hover{ color:#fff; }
 
 <footer id="contact">
 <h2>Контакты</h2>
-
 <p>Email: <a href="mailto:dizain.na.izi@gmail.com">dizain.na.izi@gmail.com</a></p>
-
-<p>
-Instagram: <a href="https://www.instagram.com/digitalflorist.ai/" target="_blank">digitalflorist.ai</a><br>
-Pinterest: <a href="https://ru.pinterest.com/digitalfloristAI/" target="_blank">digitalfloristAI</a>
-</p>
-
 <div class="signature">
 Устюжанина Карина Андреевна · AI visual artist
 </div>
 </footer>
 
+<div class="lightbox">
+<span class="lightbox-close">&#10005;</span>
+<img src="">
+</div>
+
 <script>
 
-/* Плавкое появление блоков */
-
+/* reveal */
 const sections=document.querySelectorAll(".reveal");
-
-function revealOnScroll(){
+function reveal(){
     sections.forEach(section=>{
         const rect=section.getBoundingClientRect();
         if(rect.top<window.innerHeight-120){
@@ -304,42 +277,58 @@ function revealOnScroll(){
         }
     });
 }
+window.addEventListener("scroll",reveal);
+window.addEventListener("load",reveal);
 
-window.addEventListener("scroll",revealOnScroll);
-window.addEventListener("load",revealOnScroll);
-
-/* Галереи */
-
+/* gallery */
 document.querySelectorAll(".gallery").forEach(gallery=>{
-
     const track=gallery.querySelector(".gallery-track");
     const items=gallery.querySelectorAll(".gallery-item");
     const left=gallery.querySelector(".left");
     const right=gallery.querySelector(".right");
-
     let index=0;
 
-    function updateGallery(){
-        items.forEach(item=>item.classList.remove("active"));
+    function update(){
+        items.forEach(i=>i.classList.remove("active"));
         items[index].classList.add("active");
-
-        const itemWidth=310;
-        const offset=-(index*itemWidth)+itemWidth;
-        track.style.transform=`translateX(${offset}px)`;
+        track.style.transform=`translateX(-${index*310}px)`;
     }
 
-    right.addEventListener("click",()=>{
-        index=(index+1)%items.length;
-        updateGallery();
+    right.onclick=()=>{
+        if(index<items.length-1){
+            index++;
+            update();
+        }
+    };
+
+    left.onclick=()=>{
+        if(index>0){
+            index--;
+            update();
+        }
+    };
+
+    items.forEach(item=>{
+        item.onclick=()=>{
+            document.querySelector(".lightbox img").src=item.querySelector("img").src;
+            document.querySelector(".lightbox").classList.add("active");
+        };
     });
 
-    left.addEventListener("click",()=>{
-        index=(index-1+items.length)%items.length;
-        updateGallery();
-    });
-
-    updateGallery();
+    update();
 });
+
+/* lightbox close */
+document.querySelector(".lightbox-close").onclick=()=>{
+    document.querySelector(".lightbox").classList.remove("active");
+};
+
+document.querySelector(".lightbox").onclick=(e)=>{
+    if(e.target.classList.contains("lightbox")){
+        document.querySelector(".lightbox").classList.remove("active");
+    }
+};
+
 </script>
 
 </body>
