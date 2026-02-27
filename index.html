@@ -126,34 +126,50 @@ p{
     transition:0.4s ease;
 }
 
-/* активный слева */
+/* активный */
 .gallery-item.active img{
     filter:none;
     transform:scale(1);
 }
 
-/* затемнённые справа */
+/* затемнённые */
 .gallery-item:not(.active) img{
     filter:brightness(40%);
     transform:scale(0.9);
 }
 
+/* ===== Ultra thin arrows ===== */
+
 .arrow{
     position:absolute;
     top:50%;
     transform:translateY(-50%);
-    font-size:30px;
+    font-size:28px;
+    font-weight:300;
     cursor:pointer;
-    color:#555;
+    color:#666;
+    opacity:0;
+    transition:0.4s ease;
     user-select:none;
-    transition:0.3s;
-    z-index:10;
+    z-index:20;
 }
 
-.arrow:hover{ color:#fff; }
+.gallery:hover .arrow{
+    opacity:1;
+}
 
-.arrow.left{ left:-40px; }
-.arrow.right{ right:-40px; }
+.arrow:hover{
+    color:#fff;
+    transform:translateY(-50%) scale(1.15);
+}
+
+.arrow.left{
+    left:15px;
+}
+
+.arrow.right{
+    right:15px;
+}
 
 /* ===== Lightbox ===== */
 
@@ -187,9 +203,10 @@ p{
     position:absolute;
     top:30px;
     right:40px;
-    font-size:28px;
+    font-size:22px;
     cursor:pointer;
-    color:#888;
+    color:#666;
+    transition:0.3s;
 }
 
 .lightbox-close:hover{
@@ -224,9 +241,6 @@ footer a:hover{ color:#fff; }
 <nav>
 <a href="#about">Обо мне</a>
 <a href="#models">ИИ-модели</a>
-<a href="#fashion">Одежда</a>
-<a href="#concepts">Концепты</a>
-<a href="#floral">Флористика</a>
 <a href="#contact">Контакты</a>
 </nav>
 
@@ -332,4 +346,3 @@ document.querySelector(".lightbox").onclick=(e)=>{
 
 </body>
 </html>
-
