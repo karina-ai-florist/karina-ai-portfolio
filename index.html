@@ -8,156 +8,168 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Manrope', sans-serif;
-    background-color: #000;
-    color: #fff;
-    scroll-behavior: smooth;
+body{
+    margin:0;
+    font-family:'Manrope',sans-serif;
+    background:#000;
+    color:#fff;
+    scroll-behavior:smooth;
 }
 
 /* Навигация */
 
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.85);
-    padding: 22px 0;
-    text-align: center;
-    z-index: 1000;
-    backdrop-filter: blur(6px);
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(0,0,0,0.85);
+    padding:22px 0;
+    text-align:center;
+    backdrop-filter:blur(6px);
+    z-index:1000;
 }
 
-nav a {
-    color: #777;
-    margin: 0 25px;
-    text-decoration: none;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: 0.3s;
+nav a{
+    color:#777;
+    margin:0 25px;
+    text-decoration:none;
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    transition:0.3s;
 }
 
-nav a:hover {
-    color: #fff;
-}
+nav a:hover{ color:#fff; }
 
 /* Первый экран */
 
-#about {
-    padding: 180px 18% 120px 18%;
-    min-height: 100vh;
-    opacity: 0;
-    animation: fadeIn 0.8s ease forwards;
+#about{
+    padding:180px 18% 120px;
+    min-height:100vh;
+    opacity:0;
+    animation:fadeIn 0.8s ease forwards;
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+@keyframes fadeIn{
+    to{ opacity:1; }
 }
 
-/* Остальные блоки */
+/* Остальные секции */
 
-section {
-    padding: 160px 18% 120px 18%;
-    min-height: 100vh;
+section{
+    padding:160px 18% 120px;
+    min-height:100vh;
 }
 
-.reveal {
-    opacity: 0;
-    transform: translateY(60px);
-    transition: all 1.2s ease;
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:all 1.2s ease;
 }
 
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
 }
 
 /* Типографика */
 
-h1 {
-    font-weight: 300;
-    font-size: 48px;
-    letter-spacing: 3px;
-    margin-bottom: 60px;
+h1{
+    font-weight:300;
+    font-size:48px;
+    letter-spacing:3px;
+    margin-bottom:60px;
 }
 
-h2 {
-    font-weight: 300;
-    font-size: 32px;
-    letter-spacing: 2px;
-    margin-bottom: 50px;
+h2{
+    font-weight:300;
+    font-size:32px;
+    letter-spacing:2px;
+    margin-bottom:50px;
 }
 
-p {
-    color: #aaa;
-    line-height: 1.9;
-    font-size: 15px;
-    max-width: 750px;
+p{
+    color:#aaa;
+    line-height:1.9;
+    font-size:15px;
+    max-width:750px;
 }
 
-/* Галерея */
+/* ===== Галерея 3 квадрата ===== */
 
-.gallery {
-    position: relative;
-    max-width: 900px;
-    margin-top: 70px;
+.gallery{
+    position:relative;
+    max-width:1000px;
+    margin-top:80px;
+    overflow:hidden;
 }
 
-.gallery img {
-    width: 100%;
-    display: none;
-    transition: opacity 0.6s ease;
+.gallery-track{
+    display:flex;
+    align-items:center;
+    transition:transform 0.6s ease;
 }
 
-.gallery img.active {
-    display: block;
+.gallery-item{
+    width:260px;
+    height:260px;
+    margin:0 25px;
+    overflow:hidden;
+    transition:all 0.6s ease;
+    opacity:0.5;
+    transform:scale(0.85);
+    flex-shrink:0;
 }
 
-.arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 28px;
-    cursor: pointer;
-    color: #555;
-    user-select: none;
-    transition: 0.3s;
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-.arrow:hover {
-    color: #fff;
+.gallery-item.active{
+    transform:scale(1.15);
+    opacity:1;
 }
 
-.arrow.left { left: -60px; }
-.arrow.right { right: -60px; }
+.arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:30px;
+    cursor:pointer;
+    color:#555;
+    user-select:none;
+    transition:0.3s;
+    z-index:10;
+}
+
+.arrow:hover{ color:#fff; }
+
+.arrow.left{ left:0; }
+.arrow.right{ right:0; }
 
 /* Футер */
 
-footer {
-    padding: 120px 18%;
-    border-top: 1px solid #111;
+footer{
+    padding:120px 18%;
+    border-top:1px solid #111;
 }
 
-footer a {
-    color: #777;
-    text-decoration: none;
-    transition: 0.3s;
+footer a{
+    color:#777;
+    text-decoration:none;
+    transition:0.3s;
 }
 
-footer a:hover {
-    color: #fff;
-}
+footer a:hover{ color:#fff; }
 
-.signature {
-    margin-top: 90px;
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: #444;
-    font-weight: 300;
+.signature{
+    margin-top:90px;
+    font-size:12px;
+    letter-spacing:2px;
+    color:#444;
+    font-weight:300;
 }
 </style>
 </head>
@@ -189,69 +201,77 @@ footer a:hover {
 
 <section id="models" class="reveal">
 <h2>ИИ-модели</h2>
-<p>Консистентные виртуальные модели под конкретный бренд. Разные типажи и поддержание визуальной целостности.</p>
+<p>Консистентные виртуальные модели под конкретный бренд.</p>
 
 <div class="gallery">
 <span class="arrow left">&#10094;</span>
+<div class="gallery-track">
+<div class="gallery-item active"><img src="models1.jpg"></div>
+<div class="gallery-item"><img src="models2.jpg"></div>
+<div class="gallery-item"><img src="models3.jpg"></div>
+<div class="gallery-item"><img src="models4.jpg"></div>
+<div class="gallery-item"><img src="models5.jpg"></div>
+<div class="gallery-item"><img src="models6.jpg"></div>
+<div class="gallery-item"><img src="models7.jpg"></div>
+</div>
 <span class="arrow right">&#10095;</span>
-<img src="models1.jpg" class="active">
-<img src="models2.jpg">
-<img src="models3.jpg">
-<img src="models4.jpg">
-<img src="models5.jpg">
-<img src="models6.jpg">
-<img src="models7.jpg">
 </div>
 </section>
 
 <section id="fashion" class="reveal">
 <h2>Одежда</h2>
-<p>Ghost mannequin, white background, flat lay, lookbook и campaign style для e-commerce.</p>
+<p>Ghost mannequin, flat lay и campaign style для e-commerce.</p>
 
 <div class="gallery">
 <span class="arrow left">&#10094;</span>
+<div class="gallery-track">
+<div class="gallery-item active"><img src="fashion1.jpg"></div>
+<div class="gallery-item"><img src="fashion2.jpg"></div>
+<div class="gallery-item"><img src="fashion3.jpg"></div>
+<div class="gallery-item"><img src="fashion4.jpg"></div>
+<div class="gallery-item"><img src="fashion5.jpg"></div>
+<div class="gallery-item"><img src="fashion6.jpg"></div>
+<div class="gallery-item"><img src="fashion7.jpg"></div>
+</div>
 <span class="arrow right">&#10095;</span>
-<img src="fashion1.jpg" class="active">
-<img src="fashion2.jpg">
-<img src="fashion3.jpg">
-<img src="fashion4.jpg">
-<img src="fashion5.jpg">
-<img src="fashion6.jpg">
-<img src="fashion7.jpg">
 </div>
 </section>
 
 <section id="concepts" class="reveal">
 <h2>Концепты</h2>
-<p>«Хрупкие создания Байкала» и «Русалка Тихого Океана» — авторские проекты на стыке fashion и AI-генерации.</p>
+<p>«Хрупкие создания Байкала» и «Русалка Тихого Океана».</p>
 
 <div class="gallery">
 <span class="arrow left">&#10094;</span>
+<div class="gallery-track">
+<div class="gallery-item active"><img src="concept1.jpg"></div>
+<div class="gallery-item"><img src="concept2.jpg"></div>
+<div class="gallery-item"><img src="concept3.jpg"></div>
+<div class="gallery-item"><img src="concept4.jpg"></div>
+<div class="gallery-item"><img src="concept5.jpg"></div>
+<div class="gallery-item"><img src="concept6.jpg"></div>
+<div class="gallery-item"><img src="concept7.jpg"></div>
+</div>
 <span class="arrow right">&#10095;</span>
-<img src="concept1.jpg" class="active">
-<img src="concept2.jpg">
-<img src="concept3.jpg">
-<img src="concept4.jpg">
-<img src="concept5.jpg">
-<img src="concept6.jpg">
-<img src="concept7.jpg">
 </div>
 </section>
 
 <section id="floral" class="reveal">
 <h2>Флористика</h2>
-<p>Генеративная флористика и ботанические композиции для fashion-визуалов и product-съёмок.</p>
+<p>Генеративная ботаника для fashion-визуалов.</p>
 
 <div class="gallery">
 <span class="arrow left">&#10094;</span>
+<div class="gallery-track">
+<div class="gallery-item active"><img src="floral1.jpg"></div>
+<div class="gallery-item"><img src="floral2.jpg"></div>
+<div class="gallery-item"><img src="floral3.jpg"></div>
+<div class="gallery-item"><img src="floral4.jpg"></div>
+<div class="gallery-item"><img src="floral5.jpg"></div>
+<div class="gallery-item"><img src="floral6.jpg"></div>
+<div class="gallery-item"><img src="floral7.jpg"></div>
+</div>
 <span class="arrow right">&#10095;</span>
-<img src="floral1.jpg" class="active">
-<img src="floral2.jpg">
-<img src="floral3.jpg">
-<img src="floral4.jpg">
-<img src="floral5.jpg">
-<img src="floral6.jpg">
-<img src="floral7.jpg">
 </div>
 </section>
 
@@ -271,40 +291,54 @@ Pinterest: <a href="https://ru.pinterest.com/digitalfloristAI/" target="_blank">
 </footer>
 
 <script>
-const sections = document.querySelectorAll(".reveal");
 
-function revealOnScroll() {
-    sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 120) {
+/* Плавкое появление блоков */
+
+const sections=document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+    sections.forEach(section=>{
+        const rect=section.getBoundingClientRect();
+        if(rect.top<window.innerHeight-120){
             section.classList.add("visible");
         }
     });
 }
 
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+window.addEventListener("scroll",revealOnScroll);
+window.addEventListener("load",revealOnScroll);
 
-document.querySelectorAll(".gallery").forEach(gallery => {
-    let index = 0;
-    const images = gallery.querySelectorAll("img");
-    const left = gallery.querySelector(".left");
-    const right = gallery.querySelector(".right");
+/* Галереи */
 
-    function showImage(i){
-        images.forEach(img => img.classList.remove("active"));
-        images[i].classList.add("active");
+document.querySelectorAll(".gallery").forEach(gallery=>{
+
+    const track=gallery.querySelector(".gallery-track");
+    const items=gallery.querySelectorAll(".gallery-item");
+    const left=gallery.querySelector(".left");
+    const right=gallery.querySelector(".right");
+
+    let index=0;
+
+    function updateGallery(){
+        items.forEach(item=>item.classList.remove("active"));
+        items[index].classList.add("active");
+
+        const itemWidth=310;
+        const offset=-(index*itemWidth)+itemWidth;
+        track.style.transform=`translateX(${offset}px)`;
     }
 
-    right.addEventListener("click", () => {
-        index = (index + 1) % images.length;
-        showImage(index);
+    right.addEventListener("click",()=>{
+        index=(index+1)%items.length;
+        updateGallery();
     });
 
-    left.addEventListener("click", () => {
-        index = (index - 1 + images.length) % images.length;
-        showImage(index);
+    left.addEventListener("click",()=>{
+        index=(index-1+items.length)%items.length;
+        updateGallery();
     });
+
+    updateGallery();
 });
 </script>
 
