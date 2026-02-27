@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Портфолио генераций для e-commerce — Устюжанина Карина Андреевна</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+    background-color: #000;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+/* Навигация */
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.85);
+    padding: 22px 0;
+    text-align: center;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+}
+
+nav a {
+    color: #777;
+    margin: 0 25px;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+/* Первый экран */
+
+#about {
+    padding: 180px 18% 120px 18%;
+    min-height: 100vh;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Остальные блоки */
+
+section {
+    padding: 160px 18% 120px 18%;
+    min-height: 100vh;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1.2s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Типографика */
+
+h1 {
+    font-weight: 300;
+    font-size: 48px;
+    letter-spacing: 3px;
+    margin-bottom: 60px;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 32px;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+}
+
+p {
+    color: #aaa;
+    line-height: 1.9;
+    font-size: 15px;
+    max-width: 750px;
+}
+
+/* Галерея */
+
+.gallery {
+    position: relative;
+    max-width: 900px;
+    margin-top: 70px;
+}
+
+.gallery img {
+    width: 100%;
+    display: none;
+    transition: opacity 0.6s ease;
+}
+
+.gallery img.active {
+    display: block;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+    cursor: pointer;
+    color: #555;
+    user-select: none;
+    transition: 0.3s;
+}
+
+.arrow:hover {
+    color: #fff;
+}
+
+.arrow.left { left: -60px; }
+.arrow.right { right: -60px; }
+
+/* Футер */
+
+footer {
+    padding: 120px 18%;
+    border-top: 1px solid #111;
+}
+
+footer a {
+    color: #777;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+.signature {
+    margin-top: 90px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #444;
+    font-weight: 300;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#about">Обо мне</a>
+<a href="#models">ИИ-модели</a>
+<a href="#fashion">Одежда</a>
+<a href="#concepts">Концепты</a>
+<a href="#floral">Флористика</a>
+<a href="#contact">Контакты</a>
+</nav>
+
+<section id="about">
+<h1>AI e-commerce визуализация одежды</h1>
+
+<p>
+Создаю e-commerce изображения одежды с помощью ИИ-генерации для интернет-магазинов и частных брендов.
+Работаю в форматах ghost mannequin, flat lay, white background и lookbook.
+</p>
+
+<p>
+Кейс: сотрудничество с компанией PODIUM — премиальный fashion-ритейлер.
+Создание AI-визуализаций аксессуаров, виртуальных моделей и digital-кампаний.
+</p>
+</section>
+
+<section id="models" class="reveal">
+<h2>ИИ-модели</h2>
+<p>Консистентные виртуальные модели под конкретный бренд. Разные типажи и поддержание визуальной целостности.</p>
+
+<div class="gallery">
+<span class="arrow left">&#10094;</span>
+<span class="arrow right">&#10095;</span>
+<img src="models1.jpg" class="active">
+<img src="models2.jpg">
+<img src="models3.jpg">
+<img src="models4.jpg">
+<img src="models5.jpg">
+<img src="models6.jpg">
+<img src="models7.jpg">
+</div>
+</section>
+
+<section id="fashion" class="reveal">
+<h2>Одежда</h2>
+<p>Ghost mannequin, white background, flat lay, lookbook и campaign style для e-commerce.</p>
+
+<div class="gallery">
+<span class="arrow left">&#10094;</span>
+<span class="arrow right">&#10095;</span>
+<img src="fashion1.jpg" class="active">
+<img src="fashion2.jpg">
+<img src="fashion3.jpg">
+<img src="fashion4.jpg">
+<img src="fashion5.jpg">
+<img src="fashion6.jpg">
+<img src="fashion7.jpg">
+</div>
+</section>
+
+<section id="concepts" class="reveal">
+<h2>Концепты</h2>
+<p>«Хрупкие создания Байкала» и «Русалка Тихого Океана» — авторские проекты на стыке fashion и AI-генерации.</p>
+
+<div class="gallery">
+<span class="arrow left">&#10094;</span>
+<span class="arrow right">&#10095;</span>
+<img src="concept1.jpg" class="active">
+<img src="concept2.jpg">
+<img src="concept3.jpg">
+<img src="concept4.jpg">
+<img src="concept5.jpg">
+<img src="concept6.jpg">
+<img src="concept7.jpg">
+</div>
+</section>
+
+<section id="floral" class="reveal">
+<h2>Флористика</h2>
+<p>Генеративная флористика и ботанические композиции для fashion-визуалов и product-съёмок.</p>
+
+<div class="gallery">
+<span class="arrow left">&#10094;</span>
+<span class="arrow right">&#10095;</span>
+<img src="floral1.jpg" class="active">
+<img src="floral2.jpg">
+<img src="floral3.jpg">
+<img src="floral4.jpg">
+<img src="floral5.jpg">
+<img src="floral6.jpg">
+<img src="floral7.jpg">
+</div>
+</section>
+
+<footer id="contact">
+<h2>Контакты</h2>
+
+<p>Email: <a href="mailto:dizain.na.izi@gmail.com">dizain.na.izi@gmail.com</a></p>
+
+<p>
+Instagram: <a href="https://www.instagram.com/digitalflorist.ai/" target="_blank">digitalflorist.ai</a><br>
+Pinterest: <a href="https://ru.pinterest.com/digitalfloristAI/" target="_blank">digitalfloristAI</a>
+</p>
+
+<div class="signature">
+Устюжанина Карина Андреевна · AI visual artist
+</div>
+</footer>
+
+<script>
+const sections = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 120) {
+            section.classList.add("visible");
+        }
+    });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+
+document.querySelectorAll(".gallery").forEach(gallery => {
+    let index = 0;
+    const images = gallery.querySelectorAll("img");
+    const left = gallery.querySelector(".left");
+    const right = gallery.querySelector(".right");
+
+    function showImage(i){
+        images.forEach(img => img.classList.remove("active"));
+        images[i].classList.add("active");
+    }
+
+    right.addEventListener("click", () => {
+        index = (index + 1) % images.length;
+        showImage(index);
+    });
+
+    left.addEventListener("click", () => {
+        index = (index - 1 + images.length) % images.length;
+        showImage(index);
+    });
+});
+</script>
+
+</body>
+</html>
