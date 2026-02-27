@@ -16,8 +16,6 @@ body{
     scroll-behavior:smooth;
 }
 
-/* Навигация */
-
 nav{
     position:fixed;
     top:0;
@@ -41,8 +39,6 @@ nav a{
 
 nav a:hover{ color:#fff; }
 
-/* Первый экран */
-
 #about{
     padding:180px 18% 120px;
     min-height:100vh;
@@ -53,8 +49,6 @@ nav a:hover{ color:#fff; }
 @keyframes fadeIn{
     to{ opacity:1; }
 }
-
-/* Остальные секции */
 
 section{
     padding:160px 18% 120px;
@@ -71,8 +65,6 @@ section{
     opacity:1;
     transform:translateY(0);
 }
-
-/* Типографика */
 
 h1{
     font-weight:300;
@@ -99,13 +91,14 @@ p{
 
 .gallery{
     position:relative;
-    max-width:1000px;
+    max-width:1100px;
     margin-top:80px;
     overflow:hidden;
 }
 
 .gallery-track{
     display:flex;
+    align-items:center;
     transition:transform 0.6s ease;
 }
 
@@ -123,22 +116,27 @@ p{
     width:100%;
     height:100%;
     object-fit:cover;
-    transition:0.4s ease;
+    transition:0.5s ease;
 }
 
-/* активный слева */
+/* увеличенный активный */
+.gallery-item.active{
+    width:380px;
+    height:380px;
+}
+
 .gallery-item.active img{
     filter:none;
     transform:scale(1);
 }
 
-/* затемнённые справа */
+/* затемнённые */
 .gallery-item:not(.active) img{
     filter:brightness(40%);
     transform:scale(0.9);
 }
 
-/* ===== Ultra-thin arrows (always visible) ===== */
+/* ===== Ultra-thin arrows ===== */
 
 .arrow{
     position:absolute;
@@ -230,8 +228,6 @@ p{
     color:#fff;
 }
 
-/* Футер */
-
 footer{
     padding:120px 18%;
     border-top:1px solid #111;
@@ -258,6 +254,9 @@ footer a:hover{ color:#fff; }
 <nav>
 <a href="#about">Обо мне</a>
 <a href="#models">ИИ-модели</a>
+<a href="#fashion">Одежда</a>
+<a href="#concepts">Концепты</a>
+<a href="#floral">Флористика</a>
 <a href="#contact">Контакты</a>
 </nav>
 
@@ -268,10 +267,8 @@ footer a:hover{ color:#fff; }
 
 <section id="models" class="reveal">
 <h2>ИИ-модели</h2>
-
 <div class="gallery">
 <div class="arrow left"></div>
-
 <div class="gallery-track">
 <div class="gallery-item active"><img src="models1.jpg"></div>
 <div class="gallery-item"><img src="models2.jpg"></div>
@@ -279,7 +276,6 @@ footer a:hover{ color:#fff; }
 <div class="gallery-item"><img src="models4.jpg"></div>
 <div class="gallery-item"><img src="models5.jpg"></div>
 </div>
-
 <div class="arrow right"></div>
 </div>
 </section>
@@ -292,27 +288,7 @@ footer a:hover{ color:#fff; }
 </div>
 </footer>
 
-<div class="lightbox">
-<span class="lightbox-close">&#10005;</span>
-<img src="">
-</div>
-
 <script>
-
-/* reveal */
-const sections=document.querySelectorAll(".reveal");
-function reveal(){
-    sections.forEach(section=>{
-        const rect=section.getBoundingClientRect();
-        if(rect.top<window.innerHeight-120){
-            section.classList.add("visible");
-        }
-    });
-}
-window.addEventListener("scroll",reveal);
-window.addEventListener("load",reveal);
-
-/* gallery */
 document.querySelectorAll(".gallery").forEach(gallery=>{
     const track=gallery.querySelector(".gallery-track");
     const items=gallery.querySelectorAll(".gallery-item");
@@ -327,40 +303,15 @@ document.querySelectorAll(".gallery").forEach(gallery=>{
     }
 
     right.onclick=()=>{
-        if(index<items.length-1){
-            index++;
-            update();
-        }
+        if(index<items.length-1){ index++; update(); }
     };
 
     left.onclick=()=>{
-        if(index>0){
-            index--;
-            update();
-        }
+        if(index>0){ index--; update(); }
     };
-
-    items.forEach(item=>{
-        item.onclick=()=>{
-            document.querySelector(".lightbox img").src=item.querySelector("img").src;
-            document.querySelector(".lightbox").classList.add("active");
-        };
-    });
 
     update();
 });
-
-/* lightbox close */
-document.querySelector(".lightbox-close").onclick=()=>{
-    document.querySelector(".lightbox").classList.remove("active");
-};
-
-document.querySelector(".lightbox").onclick=(e)=>{
-    if(e.target.classList.contains("lightbox")){
-        document.querySelector(".lightbox").classList.remove("active");
-    }
-};
-
 </script>
 
 </body>
