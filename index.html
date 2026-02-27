@@ -126,49 +126,66 @@ p{
     transition:0.4s ease;
 }
 
-/* активный */
+/* активный слева */
 .gallery-item.active img{
     filter:none;
     transform:scale(1);
 }
 
-/* затемнённые */
+/* затемнённые справа */
 .gallery-item:not(.active) img{
     filter:brightness(40%);
     transform:scale(0.9);
 }
 
-/* ===== Ultra thin arrows ===== */
+/* ===== Ultra-thin arrows (always visible) ===== */
 
 .arrow{
     position:absolute;
     top:50%;
     transform:translateY(-50%);
-    font-size:28px;
-    font-weight:300;
+    width:48px;
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     cursor:pointer;
-    color:#666;
-    opacity:0;
-    transition:0.4s ease;
-    user-select:none;
-    z-index:20;
+    z-index:50;
+    opacity:0.6;
+    transition:0.3s ease;
 }
 
-.gallery:hover .arrow{
-    opacity:1;
+.arrow::before{
+    content:'';
+    width:14px;
+    height:14px;
+    border-top:1px solid #aaa;
+    border-right:1px solid #aaa;
+    transition:0.3s ease;
+}
+
+.arrow.left::before{
+    transform:rotate(-135deg);
+}
+
+.arrow.right::before{
+    transform:rotate(45deg);
 }
 
 .arrow:hover{
-    color:#fff;
-    transform:translateY(-50%) scale(1.15);
+    opacity:1;
+}
+
+.arrow:hover::before{
+    border-color:#fff;
 }
 
 .arrow.left{
-    left:15px;
+    left:0;
 }
 
 .arrow.right{
-    right:15px;
+    right:0;
 }
 
 /* ===== Lightbox ===== */
@@ -253,7 +270,8 @@ footer a:hover{ color:#fff; }
 <h2>ИИ-модели</h2>
 
 <div class="gallery">
-<span class="arrow left">&#10094;</span>
+<div class="arrow left"></div>
+
 <div class="gallery-track">
 <div class="gallery-item active"><img src="models1.jpg"></div>
 <div class="gallery-item"><img src="models2.jpg"></div>
@@ -261,7 +279,8 @@ footer a:hover{ color:#fff; }
 <div class="gallery-item"><img src="models4.jpg"></div>
 <div class="gallery-item"><img src="models5.jpg"></div>
 </div>
-<span class="arrow right">&#10095;</span>
+
+<div class="arrow right"></div>
 </div>
 </section>
 
